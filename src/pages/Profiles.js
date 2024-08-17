@@ -1,25 +1,36 @@
-import React from 'react'
-import Profile from './Profile';
-import { Link, Outlet } from 'react-router-dom';
 
-const profiles = [1,2,3,4,5];
+import { useState } from "react";
+import DropDown from './../components/DropDown';
+
+import './../styles/HoverMenu.css'
 
 const Profiles = () => {
-  return (
-    <div className='links'>
-        <div>
-        {
-            profiles.map( (profile) => (
-                <Link key={Profile} to={`/profiles/${profile}`}>
-                    Profile {profile}
-                </Link>
-            ))
-        }
-        </div>
-        <Outlet />
-    </div>
+
+    const [isDropdownVisible, setDropdownVisible] = useState(false)
+
+    const handleMouseEnter = () => {
+      setDropdownVisible(true)
+    }
+  
+    const handleMouseLeave = () => {
+      setDropdownVisible(false)
+    }
+
+    return (
+      <div>
+        <header className="App-header">
+          <div
+            className="menu"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <button>Dropdown Menu</button>
+            {/* <DropdownMenu /> */}
+            {isDropdownVisible && <DropDown />}
+          </div>
+        </header>
+      </div>
   )
 }
 
-export default 
-Profiles
+export default Profiles
