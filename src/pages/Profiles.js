@@ -18,17 +18,15 @@ const Profiles = () => {
 
     return (
       <div>
-        <header className="App-header">
           <div
             className="menu"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
             <button>Dropdown Menu</button>
-            {/* <DropdownMenu /> */}
             {isDropdownVisible && <DropDown />}
+
           </div>
-        </header>
       </div>
   )
 }

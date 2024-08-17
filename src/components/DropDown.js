@@ -1,10 +1,17 @@
 import Profile from './../pages/Profile';
 import { Link, Outlet } from 'react-router-dom';
-
+import styled from 'styled-components';
 
 import './../styles/HoverMenu.css';
 
 const DropDown = () => {
+
+    const StyledLink = styled(Link)`
+        color: gray;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        `;
 
     const profiles = [1,2,3,4,5];
 
@@ -14,9 +21,9 @@ const DropDown = () => {
             <ul>
                 {profiles.map( (profile) => (
                     <li>
-                        <Link key={Profile} to={`/profiles/${profile}`}>
+                        <StyledLink  key={Profile} to={`/profiles/${profile}`}>
                             Profile {profile}
-                        </Link>
+                        </StyledLink>
                     </li>
                 ))}
             </ul>
